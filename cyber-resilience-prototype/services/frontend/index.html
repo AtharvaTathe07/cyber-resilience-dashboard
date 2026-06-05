@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Cyber Resilience Dashboard</h1>
+    <div id="status">Loading...</div>
+    <script>
+        fetch('http://127.0.0.1:8000/api/status')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('status').innerHTML = 
+                'Score: ' + data.resilience_score + '<br>Attack: ' + data.active_attacks[0].type;
+            });
+    </script>
+</body>
+</html>
